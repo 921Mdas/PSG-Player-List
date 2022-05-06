@@ -1,0 +1,58 @@
+{%extends 'index.html'%}{%load static%} {%block content%}
+<div class="template_detail_player">
+  <div class="player_card">
+    {% for photo in player.photo_set.all %}
+    <img src="{{photo.url}}" class="avatar ignite" alt="" />
+    {% empty %}
+    <img
+      src="{%static 'css/images/ball.png'%}"
+      class="avatar_replacement"
+      alt=""
+    />
+
+    {% endfor %}
+    <div class="player_content">
+      <div class="titles">
+        <h2>{{player.name}}</h2>
+        <div class="detailed_info_player_bio">
+          <h5>{{player.language}}</h5>
+          <h5>{{player.position}}</h5>
+        </div>
+      </div>
+      <div class="performance">
+        <div class="top_3">
+          <h3>PAC: {{player.score.stamina}}</h3>
+          <h3>SHO: {{player.score.speed}}</h3>
+          <h3>PAS: {{player.score.passing}}</h3>
+        </div>
+        <div class="bottom_3">
+          <h3>DRI: {{player.score.speed}}</h3>
+          <h3>DEF: {{player.score.stamina}}</h3>
+          <h3>PHY: {{player.score.speed}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="background_fill"></div>
+  </div>
+
+  <form
+    action="{% url 'add_photo' player.id %}"
+    enctype="multipart/form-data"
+    method="POST"
+    class="card-panel"
+  >
+    {% csrf_token %}
+    <label for="photo-file" class="photo-file">
+      <p>Choose file</p>
+      <input type="file" name="photo-file" />
+    </label>
+    <br />
+    <div class="upload_actions">
+      <a href="{% url 'players' %}" class="cancel_upload_photo">Cancel</a>
+      <input type="submit" class="btn" value="Upload Photo" />
+    </div>
+  </form>
+</div>
+
+<!-- <a href="{% url 'players' %}" class="all_players_link">⬅</a> -->
+{%endblock%}

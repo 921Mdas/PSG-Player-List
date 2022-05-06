@@ -1,0 +1,15 @@
+{%extends 'index.html'%}{%load static%}{% block content %}
+
+<div class="confirmation_delete_page">
+  <h1 class="confirm_delete_text">
+    Are you sure you want to delete
+    <span class="teal-text">{{ object.name }} ?</span>
+  </h1>
+
+  <form action="" method="POST" class="delete-confirmation">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn-delete" />
+    <a href="{% url 'players' %}" class="btn-cancel">Cancel</a>
+  </form>
+</div>
+{% endblock %}

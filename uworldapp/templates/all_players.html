@@ -1,0 +1,40 @@
+{%extends 'index.html'%}{%load static%} {%block content%}
+<div class="nav navright">
+  <!-- <a href="{% url 'about' %}" class="links l-right">New Player</a>
+  <a href="{% url 'about' %}" class="links l-right">About PSG</a> -->
+  <!-- <a href="{% url 'create' %}" class="links l-right">Add a Player</a> -->
+  <!-- <img src="{% static 'css/images/PSG.png'%}" alt="" class="im img4" /> -->
+</div>
+<div class="squad_title">
+  <h1 class="squad"><a href="{%url 'home' %}">⬅</a></h1>
+  <h1 class="squad squad_titles">🏟 LINED UP SQUAD</h1>
+  <h1 class="squad squad_titles">
+    <a href="{%url 'create' %}">✚ GROW SQUAD</a>
+  </h1>
+</div>
+<div class="cards">
+  {%for play in soccer_players%}
+  <div class="player">
+    <div class="profile_pic_players">
+      {%for photo in play.photo_set.all%}
+      <img src="{{photo.url}}" class="avatar" alt="" />
+      {% empty %}
+      <img src="{%static 'css/images/ball.png'%}" class="avatar" alt="" />
+      {%endfor%}
+    </div>
+    <div class="players_detail_position">
+      <h2><span class="icon"></span> {{play.name}}</h2>
+      <div class="extra_info_player">
+        <h5><span class="icon"></span> {{play.position}}</h5>
+        <h5><span class="icon"></span> {{play.language}}</h5>
+      </div>
+    </div>
+    <div class="actions">
+      <a href="{%url  'detail' play.id%}">📂</a>
+      <a href="{% url 'delete' play.id %}">🗑️</a>
+      <a href="{% url 'update' play.id %}">✍️</a>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+{%endblock%}

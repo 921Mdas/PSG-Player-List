@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="home_title">
+      <a href="{%url 'home'%}">
+        <img src="{% static 'css/images/PSG.png'%}" alt="" class="home_logo" />
+      </a>
+      <div class="home_titles">
+        <h3>PARIS SAINT-GERMAIN</h3>
+        <h4>ICI C'EST PARIS!</h4>
+      </div>
+    </div>
+
+    <!-- {% if user.is_authenticated %}
+    <h1 class="logger">log out</h1>
+    {%else%}
+    <h1 class="logger">login</h1>
+    {%endif%} -->
+    {% block content %} {% endblock %}
+  </body>
+</html>

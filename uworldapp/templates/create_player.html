@@ -1,0 +1,18 @@
+{%extends 'index.html'%} {%block content%}
+
+<div class="create_player">
+  <h1>⚽️ CREATE PLAYER</h1>
+
+  <form method="post" class="formulaire">
+    {% csrf_token %} {{ form.as_p }}
+    <div class="save_or_cancel_newplayer">
+      <a href="{% url 'players' %}" class="cancel_new_player">Cancel</a>
+      <input type="submit" value="Create" />
+    </div>
+  </form>
+
+  <div class="effect"></div>
+</div>
+
+<!-- <a href="{% url 'players' %}" class="all_players_link create_page_return">⬅</a> -->
+{%endblock%}

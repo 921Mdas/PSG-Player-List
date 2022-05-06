@@ -1,0 +1,14 @@
+{%extends 'index.html'%}{%load static%} {%block content%}
+<div class="update_page">
+  <h2>Update <span class="teal">{{object.name}}'s</span> info</h2>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <a href="{%url 'players' %}" class="cancel_update">cancel</a>
+    <input type="submit" value="Update" />
+  </form>
+  <div class="background_fill_update"></div>
+  <a href="{% url 'players' %}" class="all_players_link update_player_link"
+    >⬅</a
+  >
+</div>
+{%endblock%}

@@ -1,0 +1,16 @@
+{%extends 'index.html'%} {%block content%}
+
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Send message" />
+</form>
+
+<!-- <h1>Welcome to the contact page</h1>
+{%for person in soccer_players%}
+<div>
+  <h3>{{person.name}}</h3>
+  <h3>{{person.language}}</h3>
+  <h3>{{person.position}}</h3>
+</div> -->
+
+{%endfor%} {%endblock%}

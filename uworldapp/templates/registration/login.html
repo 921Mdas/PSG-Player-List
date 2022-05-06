@@ -1,0 +1,19 @@
+{% extends 'index.html' %} {%load static%} {% block content %}
+
+<div class="loginform">
+  <div class="loginimageform"></div>
+
+  <div class="login_page_style">
+    <div class="login_form_content">
+      <img src="{% static 'css/images/ball.png'%}" alt="" class="login_img" />
+      <!-- <h1>＞</h1> -->
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %} {{ form.as_p }}
+        <input type="submit" class="btn" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

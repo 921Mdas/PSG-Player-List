@@ -1,0 +1,38 @@
+{%extends 'index.html'%}{%load static%} {%block content%}
+
+<div class="homepage">
+  <div class="navigation">
+    <a href="accounts/login/" class="links">Login</a>
+    <a href="{% url 'about' %}" class="links">About</a>
+    <a href="{% url 'about' %}" class="links">Contact</a>
+  </div>
+
+  <div class="image_players">
+    <img
+      src="{% static 'css/images/messi.png'%}"
+      alt=""
+      class="landing_img img1"
+    />
+    <img
+      src="{% static 'css/images/Kylian.png'%}"
+      alt=""
+      class="landing_img img2"
+    />
+    <img
+      src="{% static 'css/images/Neymar.png'%}"
+      alt=""
+      class="landing_img img3"
+    />
+    <img
+      src="{% static 'css/images/lines.png'%}"
+      alt=""
+      class="landing_img img4"
+    />
+    <img
+      src="{% static 'css/images/lines.png'%}"
+      alt=""
+      class="landing_img img5"
+    />
+  </div>
+</div>
+{%endblock%}
