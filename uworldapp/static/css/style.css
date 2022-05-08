@@ -940,6 +940,15 @@ body {
   background-color: var(--txt-col);
 }
 
+.description_about {
+  color: white;
+}
+
+.description_about p {
+  padding: 1em;
+  width: 80%;
+}
+
 /* HOMEPAGE & LANDING RESPONSIVENESS */
 
 @media only screen and (max-width: 660px) {
