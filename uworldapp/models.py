@@ -68,3 +68,6 @@ class Photo(models.Model):
     def __str__(self):
         return f"Photo for player id: {self.player_id} @{self.url}"
 
+class Club(models.Model):
+    name = models.CharField(max_length=300, blank=True)
+    nationality = models.CharField(max_length=200, blank=True)

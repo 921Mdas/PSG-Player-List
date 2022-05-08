@@ -1,5 +1,30 @@
 {%extends 'index.html'%} {%block content%}
+<div class="about_us_page">
+  <div class="description_about">
+    <h1 class="history">About PSG</h1>
+    <p>
+      PSG were founded in 1970, following the merger of Paris FC and Stade
+      Saint-Germain. The Parisians won their first major honour, the French Cup,
+      in 1982 and their first Division 1 title in 1986. The 1990s was among the
+      most successful periods in PSG's history; they claimed a second league
+      title, three French Cups, two French League Cups, two French Super Cups
+      and the UEFA Cup Winners' Cup in 1996. <br /><br />
+      After suffering a decline in fortunes during the 2000s, the Red and Blues
+      have enjoyed a revival since 2011 with increased financial backing,
+      achieving unparalleled dominance in domestic competitions, winning
+      multiple league titles and national cups. PSG have also become a regular
+      feature in the UEFA Champions League, reaching their first final in 2020.
+    </p>
+  </div>
 
-<h1>Welcome to the about page</h1>
-
+  <h1 class="currentsquad">SQUAD</h1>
+  <div class="section_about">
+    {% for play in soccerplayers%}
+    <div class="about_content">
+      <h2>{{play.name}}</h2>
+      <h3>{{play.country}}</h3>
+    </div>
+    {%endfor%}
+  </div>
+</div>
 {%endblock%}
