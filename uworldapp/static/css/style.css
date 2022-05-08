@@ -863,6 +863,46 @@ body {
   color: var(--txt-col2);
 }
 
+.section_about {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: minmax(100px, auto);
+  grid-auto-rows: 120px;
+}
+
+.about_content {
+  border: solid 1px white;
+  color: white;
+  padding: 1em;
+  transition: all 0.5s ease-in-out;
+}
+
+.about_us_page {
+  padding: 1em;
+}
+
+.about_content:hover {
+  background: rgba(255, 255, 255, 0.411);
+}
+
+.about_content:nth-child(odd) {
+  background-color: var(--fr-col-blue2);
+}
+
+.currentsquad {
+  color: white;
+  margin-bottom: 1em;
+}
+
+.about_content h2 {
+  color: white;
+}
+
+.about_content h3 {
+  color: rgba(187, 187, 187, 0.904);
+}
+
 @keyframes bouncer {
   0% {
     transform: translateY(0);
@@ -1025,6 +1065,7 @@ body {
     width: 100%;
     flex-direction: column;
   }
+
   .player_card img {
     width: 100px;
     height: 100px;
@@ -1042,4 +1083,8 @@ body {
     top: 0;
     right: 0;
   }
+}
+
+.about_content h1 {
+  color: white;
 }

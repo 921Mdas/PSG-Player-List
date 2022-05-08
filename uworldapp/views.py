@@ -2,7 +2,7 @@ from ast import Delete
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Player, Photo
+from .models import Player, Photo,Club
 from uworldapp.forms import seeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -92,17 +92,31 @@ def add_photo(request, player_id):
 
     # return redirect('detail', player_id=player_id)
 
-class weather(APIView):
-    def get(self,request):
-        cursor = connection.cursor()
-        cursor.execute("SELECT * from weahter")
-        results = cursor.fetchall()
-        keys = ["id","month","rain","lowest"]
-        final =[]
-        for result in results:
-            pet = {}
+def ClubMan(request):
+    cursor = connection.cursor()
+    cursor.execute("SELECT * from ourplayers")
+    results = cursor.fetchall()
+    keys = ["id","name","country","lowest"]
+    final =[]
+    for result in results:
+            play = {}
             for idx in range(len(result)):
-               pet[keys[idx]]= result[idx]
-            final.append(pet)
-        # columns = [col[1] for col in results]
-        return Response(final)
+               play[keys[idx]]= result[idx]
+            final.append(play)
+    return render(request,"about.html",{'soccerplayers':final} )        
+
+# class Club(APIView):
+#     def get(self,request):
+#         cursor = connection.cursor()
+#         cursor.execute("SELECT * from ourplayers")
+#         results = cursor.fetchall()
+#         keys = ["id","name","country","lowest"]
+#         final =[]
+#         for result in results:
+#             pet = {}
+#             for idx in range(len(result)):
+#                pet[keys[idx]]= result[idx]
+#             final.append(pet)
+#         # columns = [col[1] for col in results]
+#         return Response(final)
+
