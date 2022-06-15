@@ -1,1 +1,1 @@
-worker: gunicorn uworld.wsgi
+web: gunicorn uworld.wsgi
