@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 import environ
 env = environ.Env()
@@ -150,3 +151,7 @@ DJANGO_ICONS = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/allplayers/'
+
+
+
+django_heroku.settings(locals())
